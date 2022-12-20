@@ -1,0 +1,6 @@
+{
+  "watch": ["lib", ".env"],
+  "ext": "js,ts,json",
+  "ignore": ["lib/logs/*", "lib/**/*.{spec,test}.ts"],
+  "exec": "ts-node -r tsconfig-paths/register --transpile-only lindex.ts"
+}

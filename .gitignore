@@ -1,0 +1,15 @@
+#npm
+node_modules
+package-lock.json
+*.log
+
+#yarn
+yarn-error-log.json
+
+.env
+
+# Coveralls
+.nyc_output
+coverage
+
+# https://git-scm.com/docs/gitignore

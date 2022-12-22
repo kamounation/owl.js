@@ -23,7 +23,6 @@ yarn add owl-js
 ## Dependencies
 
 - express
-- class-transformer
 - http-status
 - moment
 - morgan
@@ -44,3 +43,25 @@ yarn add owl-js
 - @types/node
 - @typescript-eslint/eslint-plugin
 - @typescript-eslint/parser
+
+## TEST
+
+to run a manual server test run
+
+```bash
+yarn test:serve
+```
+
+or
+
+```bash
+npm run test:serve
+```
+
+or
+
+```bash
+pnpm test:serve
+```
+
+You can also view the tests/api/server.ts file to view the test code..

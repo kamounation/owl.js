@@ -16,7 +16,7 @@
         "sourceMap": true,
         "outDir": "dist",
         "allowJs": true,
-        "baseUrl": "lib",
+        "baseUrl": "src",
         "incremental": true,
         "skipLibCheck": true,
         "strictNullChecks": false,
@@ -35,7 +35,9 @@
     },
     "include": [
         "lib/**/*.ts",
-        "lib/**/*.json"
+        "lib/**/*.json",
+        "tests",
+        "index.ts"
     ],
     "exclude": [
         "node_modules",

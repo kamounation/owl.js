@@ -1,12 +1,10 @@
-import express, { Application, NextFunction, Request, Response } from "express";
-import httpStatus from "http-status";
+import express, { Application } from "express";
 import { connect, set } from "mongoose";
 
 import { MorganFactory } from "./src/morganConf";
 import { ErrorFactory } from "./src/error";
 import { Logger } from "./src/logger";
-import { catchAsync } from "./src/catchAsync";
-import { ErrorRes } from "./src/errorHandler";
+
 import { MongoParam, OwlRoute } from "./src/extras";
 
 export class OwlFactory {
@@ -14,21 +12,15 @@ export class OwlFactory {
   public env: string;
   public port: string | number;
   private errorFactory: ErrorFactory;
-  private logger: Logger;
   private morgan: MorganFactory;
-  public httpStatus: httpStatus.HttpStatus;
-
-  public catchAsync: (
-    fn: any
-  ) => (req: Request, res: Response, next: NextFunction) => void;
-  public errorRes: typeof ErrorRes;
+  private logger: Logger;
 
   // Note: app wouold only work with mongodbfor now cause it's passed thrugh the cnstructor
   constructor(
     routes: OwlRoute[],
     nodeEnv: string,
-    port: number | string,
-    mongo: MongoParam
+    port?: number | string,
+    mongo?: MongoParam
   ) {
     this.app = express();
     /**
@@ -39,9 +31,6 @@ export class OwlFactory {
     this.errorFactory = new ErrorFactory(nodeEnv);
     this.logger = new Logger(nodeEnv);
     this.morgan = new MorganFactory();
-    this.catchAsync = catchAsync;
-    this.httpStatus = httpStatus;
-    this.errorRes = ErrorRes;
 
     this.initMongoDatabase(mongo.url, mongo.options);
     // TODO: pass array through this method to initialize middlewares from outside
@@ -56,21 +45,27 @@ export class OwlFactory {
 
   // supports mongoose
   public initMongoDatabase(url: string, options: any) {
-    const m_tring = url.slice(0, 8);
-    // if (m_tring !== "mongodb") {
-    //   throw new Error(
-    //     "method: 'initMongoDatabase' only works for mongodb for current version of owl.js. \n If you want to initialize another database then pass it to the 'initMiddlewares' method"
-    //   );
-    // }
+    // checks if the connection string is of mongodb
+    const m_tring = url.split(":");
+    if (m_tring[0] !== "mongodb") {
+      throw new Error(
+        "method: `initMongoDatabase` only works for mongodb's mongoose driver for this current version of owl.js. If you want to initialize another database then pass it to the 'initMiddlewares' method"
+      );
+    }
+
     if (this.env !== "production") {
-      set("debug", true);
+      set("strictQuery", true);
     }
     // establish database connection
-    const mongoRun = async () => {
+    // TODO: fix bug here
+    const mongoRun = () => {
       try {
-        await connect(url, options);
+        const result = async () => await connect(url, options);
+        if (result) {
+          this.logger.logger.info("== MongoDb connected! ==");
+        }
       } catch (error) {
-        this.logger.error(error);
+        this.logger.logger.error(error);
       }
     };
     mongoRun();

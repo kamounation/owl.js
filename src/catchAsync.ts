@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 
 /**
- * Responsible for handling the try catch block and directing any errors to th next function
+ * Responsible for handling the try catch block and directing any errors to the next function
  * @param fn is usually an asynchronous function
  */
 

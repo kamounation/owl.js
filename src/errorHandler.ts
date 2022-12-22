@@ -3,6 +3,7 @@
  *  @param stack would display the error from stmd if NODE_ENV is set to "development"
  * @param statusCode sends the api response status code to the client
  */
+
 export class ErrorRes extends Error {
   public stack?: string;
   public statusCode: number;

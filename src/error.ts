@@ -3,8 +3,6 @@ import { Logger } from "./logger";
 import { NextFunction, Request, Response } from "express";
 import { ErrorRes } from "./errorHandler";
 
-// TODO: get value of NODE_ENV without making a circular imort
-
 export class ErrorFactory {
   constructor(public nodeEnv: string | number) {}
 
@@ -13,6 +11,7 @@ export class ErrorFactory {
    * @variable error  initilazes  ErrorRes{class} and sends to express' NextFunction
    */
 
+  // instantitate {Logger} class with the nodeEnv passed by the user
   protected logger = new Logger(String(this.nodeEnv));
 
   public errorConverter = (

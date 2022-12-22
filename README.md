@@ -64,4 +64,4 @@ or
 pnpm test:serve
 ```
 
-You can also view the tests/api/server.ts file to view the test code..
+You can also view the tests/api directory to view the test code.. this directory is responsible for runnning instant tests on a real life replication of owl's structure.

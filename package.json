@@ -4,7 +4,8 @@
   "description": "Simple, light weight web framework",
   "main": "index.ts",
   "contributors": [
-    "Andry Rasolofomanana <github.com/andryrasolofomanana"
+    "Andry Rasolofomanana <https://github.com/andryrasolofomanana",
+    "Christopher Egbaaibon <https://github.com/chrisegbaaaibon"
   ],
   "engines": {
     "node": ">=14.0.0"

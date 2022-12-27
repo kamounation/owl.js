@@ -14,7 +14,7 @@
         "allowSyntheticDefaultImports": true,
         "target": "es2017",
         "sourceMap": true,
-        "outDir": "dist",
+        "outDir": ".",
         "allowJs": true,
         "baseUrl": "src",
         "incremental": true,
@@ -36,6 +36,7 @@
     "include": [
         "lib/**/*.ts",
         "lib/**/*.json",
+        "src",
         "tests",
         "index.ts"
     ],
@@ -43,9 +44,8 @@
         "node_modules",
         "dist"
     ],
-
     "ts-node": {
-        "compilerOptions":{
+        "compilerOptions": {
             "module": "commonjs"
         }
     }

@@ -4,14 +4,15 @@
   "description": "Simple, light weight web framework",
   "main": "index.ts",
   "contributors": [
-    "Andry Rasolofomanana <github.com/andryrasolofomanana"
+    "Andry Rasolofomanana <https://github.com/andryrasolofomanana",
+    "Christopher Egbaaibon <https://github.com/chrisegbaaaibon"
   ],
   "engines": {
     "node": ">=14.0.0"
   },
   "scripts": {
     "test:serve": "nodemon tests/api/server.ts",
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -45,6 +46,7 @@
     "eslint": "^8.30.0",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.1",
     "typescript": "^4.9.4"
   }
 }

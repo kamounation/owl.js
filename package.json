@@ -1,6 +1,6 @@
 {
   "name": "@utibeabasi/owl-js",
-  "version": "1.0.1",
+  "version": "1.0.1-test",
   "description": "Simple, light weight web framework",
   "main": "index.ts",
   "contributors": [

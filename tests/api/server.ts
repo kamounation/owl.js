@@ -1,4 +1,4 @@
-import { OwlFactory } from "../..";
+import { OwlFactory } from "../../src";
 
 import TestRoute from "./routes";
 

@@ -37,15 +37,14 @@
         "lib/**/*.ts",
         "lib/**/*.json",
         "tests",
-        "index.ts"
+        "src"
     ],
     "exclude": [
         "node_modules",
         "dist"
     ],
-
     "ts-node": {
-        "compilerOptions":{
+        "compilerOptions": {
             "module": "commonjs"
         }
     }

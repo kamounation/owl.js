@@ -38,7 +38,7 @@
         "lib/**/*.json",
         "src",
         "tests",
-        "index.ts"
+        "src"
     ],
     "exclude": [
         "node_modules",

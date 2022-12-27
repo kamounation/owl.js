@@ -1,8 +1,8 @@
 {
   "name": "@utibeabasi/owl-js",
-  "version": "1.0.1-test1",
+  "version": "1.0.1-test4",
   "description": "Simple, light weight web framework",
-  "main": "dist/index.js",
+  "main": "index.ts",
   "contributors": [
     "Andry Rasolofomanana <https://github.com/andryrasolofomanana",
     "Christopher Egbaaibon <https://github.com/chrisegbaaaibon"
@@ -12,11 +12,10 @@
   },
   "type": "module",
   "scripts": {
-    "test:serve": "nodemon tests/api/server.ts",
-    "start": "nodemon src/index.js",
+    "serve": "nodemon tests/api/server.ts",
+    "start": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "swc src -d dist --source-maps --copy-files",
-    "build:tsc": "tsc ."
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

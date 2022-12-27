@@ -1,11 +1,11 @@
 import express, { Application } from "express";
 import { connect, set } from "mongoose";
 
-import { MorganFactory } from "./morganConf";
-import { ErrorFactory } from "./error";
-import { Logger } from "./logger";
+import { MorganFactory } from "./src/morganConf";
+import { ErrorFactory } from "./src/error";
+import { Logger } from "./src/logger";
 
-import { MongoParam, OwlRoute } from "./extras";
+import { MongoParam, OwlRoute } from "./src/extras";
 
 export class OwlFactory {
   public app: Application;

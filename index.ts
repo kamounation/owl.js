@@ -1,5 +1,5 @@
-import express, { Application } from "express";
-import { connect, set } from "mongoose";
+import * as express from "express";
+import * as mongoose from "mongoose";
 
 import { MorganFactory } from "./src/morganConf";
 import { ErrorFactory } from "./src/error";
@@ -7,8 +7,28 @@ import { Logger } from "./src/logger";
 
 import { MongoParam, OwlRoute } from "./src/extras";
 
+export {
+  IOwlMongooseD,
+  MongoParam,
+  MongooseCollection,
+  MongooseError,
+  MongooseModel,
+  MongooseSchema,
+  OwlRoute,
+  OwlRouter,
+  TypeCatchAsync,
+  TypeInjectable,
+  TypeOwlNextFunc,
+  TypeOwlRequest,
+  TypeOwlResponse,
+  TypeOwlRouter,
+  apiStatus,
+  catchAsync,
+  errorRes,
+} from "./src/extras";
+
 export class OwlFactory {
-  public app: Application;
+  public app: express.Application;
   public env: string;
   public port: string | number;
   private errorFactory: ErrorFactory;
@@ -22,7 +42,7 @@ export class OwlFactory {
     port?: number | string,
     mongo?: MongoParam
   ) {
-    this.app = express();
+    this.app = express.default();
     /**
      * @param nodeEnv can receive either  values of parameters "development" or "production"  or "test" but default is set to "development"
      */
@@ -54,13 +74,13 @@ export class OwlFactory {
     }
 
     if (this.env !== "production") {
-      set("strictQuery", true);
+      mongoose.set("strictQuery", true);
     }
     // establish database connection
     // TODO: fix bug here
     const mongoRun = () => {
       try {
-        const result = async () => await connect(url, options);
+        const result = async () => await mongoose.connect(url, options);
         if (result) {
           this.logger.logger.info("== MongoDb connected! ==");
         }

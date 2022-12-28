@@ -1,6 +1,6 @@
 {
   "name": "@utibeabasi/owl-js",
-  "version": "1.0.1-test4",
+  "version": "1.0.1-test9",
   "description": "Simple, light weight web framework",
   "main": "index.ts",
   "contributors": [
@@ -10,12 +10,15 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "serve": "nodemon tests/api/server.ts",
     "start": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",

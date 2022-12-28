@@ -1,7 +1,7 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "CommonJS",
         "lib": [
             "es2017",
             "esnext.asynciterable"
@@ -10,6 +10,9 @@
         "removeComments": true,
         "emitDecoratorMetadata": true,
         "moduleResolution": "node",
+        "types": [
+            "node"
+        ],
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
         "target": "es2017",
@@ -36,7 +39,6 @@
     "include": [
         "lib/**/*.ts",
         "lib/**/*.json",
-        "src",
         "tests",
         "src",
         "index.ts"
@@ -47,7 +49,7 @@
     ],
     "ts-node": {
         "compilerOptions": {
-            "module": "commonjs"
+            "module": "CommonJS"
         }
     }
 }

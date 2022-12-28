@@ -4,7 +4,7 @@ import {
   TypeOwlNextFunc,
   catchAsync,
   apiStatus,
-} from "extras";
+} from "../..";
 import testModel from "./model";
 import { ErrorRes } from "errorHandler";
 
